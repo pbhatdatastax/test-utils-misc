@@ -24,23 +24,23 @@ def lambda_handler(event, context):
   
   try:
     # connect to the host -- tells us if the host is actually reachable
-    s = socket.create_connection((REMOTE_SERVER, WEBPORT), 2)
+    s = socket.create_connection((host, WEBPORT), 2)
     logger.debug(s)
     s.close()
   except Exception:
      # we ignore any errors, returning False
-     logger.debug("Connection to host IP %s and metadata port %s Failed", host, WEBPORT)  
+     logger.debug("Connection to host ip %s and metadata port %s Failed", host, WEBPORT)  
   
   try:
     cert = ssl.get_server_certificate((REMOTE_SERVER,WEBPORT),ssl_version=2)
-    logger.debug("certificate from host IP %s and metadata port %s", host, WEBPORT)
+    logger.debug("certificate from host IP %s and metadata port %s", REMOTE_SERVER, WEBPORT)
     logger.debug(cert)
   except Exception:
-    logger.debug("Could not get any certificate from host IP %s and metadata port %s Failed", REMOTE_SERVER, WEBPORT)  
+    logger.debug("Could not get any certificate from host %s and metadata port %s Failed", REMOTE_SERVER, WEBPORT)  
     
   try:
-    cert = ssl.get_server_certificate((host,CQLPORT),ssl_version=2)
-    logger.debug("certificate from host IP %s and CQL port %s", REMOTE_SERVER, CQLPORT)
+    cert = ssl.get_server_certificate((REMOTE_SERVER,CQLPORT),ssl_version=2)
+    logger.debug("certificate from host %s and CQL port %s", REMOTE_SERVER, CQLPORT)
     logger.debug(cert)
   except Exception:
     logger.debug("Could not get any certificate from host IP %s and CQL port %s Failed", host, CQLPORT)  
