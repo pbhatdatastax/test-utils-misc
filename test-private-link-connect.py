@@ -5,7 +5,7 @@
 import socket
 import logging
 import ssl
-#ASTRA DB URL
+#ASTRA DB URL , Replace with correct ASTRA DB URL.
 REMOTE_SERVER = "7e4cf49f-1965-4bbe-9744-XXXXXSAAA-us-west-2.db.astra.datastax.com"
 #ASTRA DB METADATA PORT
 WEBPORT=29080
