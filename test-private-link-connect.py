@@ -5,8 +5,11 @@
 import socket
 import logging
 import ssl
-REMOTE_SERVER = "7e4cf49f-1965-4bbe-9744-5779c4acc0eb-us-west-2.db.astra.datastax.com"
+#ASTRA DB URL
+REMOTE_SERVER = "7e4cf49f-1965-4bbe-9744-XXXXXSAAA-us-west-2.db.astra.datastax.com"
+#ASTRA DB METADATA PORT
 WEBPORT=29080
+#ASTRA DB CQL PORT
 CQLPORT=29042
 
 logger = logging.getLogger()
