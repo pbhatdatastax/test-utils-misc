@@ -25,10 +25,11 @@ def lambda_handler(event, context):
   try:
     # connect to the host -- tells us if the host is actually reachable
     s = socket.create_connection((host, WEBPORT), 2)
+    #log connection details
     logger.debug(s)
     s.close()
   except Exception:
-     # we ignore any errors, returning False
+     # connection failure
      logger.debug("Connection to host ip %s and metadata port %s Failed", host, WEBPORT)  
   
   try:
@@ -36,6 +37,7 @@ def lambda_handler(event, context):
     logger.debug("certificate from host IP %s and metadata port %s", REMOTE_SERVER, WEBPORT)
     logger.debug(cert)
   except Exception:
+    #cert retrieval failure
     logger.debug("Could not get any certificate from host %s and metadata port %s Failed", REMOTE_SERVER, WEBPORT)  
     
   try:
@@ -43,6 +45,7 @@ def lambda_handler(event, context):
     logger.debug("certificate from host %s and CQL port %s", REMOTE_SERVER, CQLPORT)
     logger.debug(cert)
   except Exception:
+    #cert retrieval failure
     logger.debug("Could not get any certificate from host IP %s and CQL port %s Failed", host, CQLPORT)  
     
   return
