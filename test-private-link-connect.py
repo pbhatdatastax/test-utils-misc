@@ -1,3 +1,7 @@
+
+#test out AWS lambda connectivity to PrivateLink endpoint
+#which can be run by customer on AWS lambda.
+#output will be in Lambda "execution results" tab or in cloudwatch logs.
 import socket
 import logging
 import ssl
