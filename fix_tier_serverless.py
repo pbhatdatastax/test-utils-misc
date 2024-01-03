@@ -1,5 +1,5 @@
 # login using command "aws sso login --profile dmc-prod"
-# Edit line 19 and line 21 to specify the profile and environment.
+# Edit line 11 and line 20 to specify the profile and line 23 for environment.
 # Edit line 57 to specify file name which contains DB ID in 2nd column after a tab.
 from multiprocessing import Pool
 import string
